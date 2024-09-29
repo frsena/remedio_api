@@ -99,11 +99,12 @@ def atualizar(form: RemedioSchema):
             error_msg = "Não foi possível atualizar o medicamento."
             return {"mesage": error_msg}, 400
         
+        print(remedio.id)
         remedio.nome = form.nome
-
+        print(remedio.nome)
         session.add(remedio)
         session.commit()
-
+        print("atualizar")
         return remedio_view(remedio)
         
     except Exception as e:
